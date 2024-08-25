@@ -23,7 +23,7 @@ class _CounterScreenState extends State<CounterScreen> {
     final counterprovider =
         Provider.of<CounterProvider>(context, listen: false);
 
-    print('build');
+    // print('build');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter Example'),
@@ -35,6 +35,8 @@ class _CounterScreenState extends State<CounterScreen> {
             Consumer<CounterProvider>(
                 builder: (context, value, child) => Text(
                       value.count.toString(),
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.bold),
                     ))
           ],
         ),
