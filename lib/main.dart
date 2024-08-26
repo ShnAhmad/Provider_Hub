@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_hub/providers/counter_provider.dart';
+import 'package:provider_hub/providers/favourite_provider.dart';
 import 'package:provider_hub/providers/slider_provider.dart';
 import 'package:provider_hub/screens/counter_screen.dart';
+import 'package:provider_hub/screens/favourite_app/home_screen.dart';
 import 'package:provider_hub/screens/slider_screen.dart';
 
 void main() {
@@ -23,9 +25,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => SliderProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => FavouriteProvider(),
+        ),
       ],
       child: const MaterialApp(
-        home: SliderScreen(),
+        debugShowCheckedModeBanner: false,
+        home: HomeScreen(),
       ),
     );
   }
