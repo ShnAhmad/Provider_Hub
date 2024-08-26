@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_hub/providers/favourite_provider.dart';
+import 'package:provider_hub/screens/favourite_app/myfavourite_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,7 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: InkWell(
-              child: Icon(Icons.favorite),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const MyfavouriteScreen(),
+                ),
+              ),
+              child: const Icon(Icons.favorite),
             ),
           ),
         ],
