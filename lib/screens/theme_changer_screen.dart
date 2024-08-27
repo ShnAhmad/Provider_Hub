@@ -12,10 +12,21 @@ class ThemeChangerScreen extends StatefulWidget {
 class _ThemeChangerScreenState extends State<ThemeChangerScreen> {
   @override
   Widget build(BuildContext context) {
-    bool mode = false;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Change Theme"),
+      ),
+      body: Column(
+        children: [
+          Consumer<ThemeChangerProvider>(builder: (context, ob, child) {
+            return SwitchListTile(
+                title: const Text('Dark Theme'),
+                value: ob.isDarkMode,
+                onChanged: (value) {
+                  ob.setTheme(value);
+                });
+          }),
+        ],
       ),
     );
   }
